@@ -2,12 +2,27 @@ import { Component } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 class SingleFilm extends Component {
     state = {
         seeComments: false,
+        fullComment: { email: "", name: "", surname: "", adult: false, comment: "" },
     };
+
+    handleSubmit(event) {
+        event.preventDefault();
+    }
+
+    handleinputValue(event) {
+        this.setState({ fullComment: { ...this.state.fullComment, comment: event.target.value } });
+    }
+
+    componentDidMount() {
+        this.handleFetch();
+    }
+
+    handleFetch() {}
 
     render() {
         const { film } = this.props;
@@ -28,9 +43,13 @@ class SingleFilm extends Component {
                         objectFit: "cover",
                         /*  display: this.state.seeComments ? "block" : "none", */
                     }}
-                    onClick={() => this.setState({ seeComments: !this.state.seeComments })}
                 >
-                    <Card.Img variant="top" src={film.Poster} className="single-dimensions h-100" />
+                    <Card.Img
+                        variant="top"
+                        src={film.Poster}
+                        className="single-dimensions h-100"
+                        onClick={() => this.setState({ seeComments: !this.state.seeComments })}
+                    />
                     <div>
                         <ListGroup
                             className="text-center"
@@ -45,9 +64,27 @@ class SingleFilm extends Component {
                             <ListGroup.Item>{film.Type}</ListGroup.Item>
                             <ListGroup.Item>{film.Year}</ListGroup.Item>
                             <ListGroup.Item>{film.imdbID}</ListGroup.Item>
-                            <Button variant="info" className="text-light m-2">
-                                Lascia un commento
-                            </Button>
+
+                            <div>
+                                <Form onSubmit={(event) => this.handleSubmit(event)}>
+                                    <Form.Label htmlFor="inputPassword5" className="fw-bold p-1">
+                                        Hai già visto questo film? Lascia un commento!
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id={film.imdbID}
+                                        aria-describedby="passwordHelpBlock"
+                                        rows={3}
+                                        onChange={(event) => this.handleinputValue(event)}
+                                        placeholder="commento..."
+                                    />
+
+                                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                                    <Button type="submit" variant="warning" className="text-light m-2">
+                                        Invia commento
+                                    </Button>
+                                </Form>
+                            </div>
                         </ListGroup>
                     </div>
                 </Card>
