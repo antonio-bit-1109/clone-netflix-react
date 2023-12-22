@@ -62,7 +62,7 @@ class FilmSection extends Component {
                         <h4 className="text-light">{titleSection}</h4>
                         <InputGroup className="mt-5 max-width">
                             <Form.Control
-                                placeholder="inserisci il titolo di un film..."
+                                placeholder="Cerca un film..."
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
                                 onChange={(event) => this.handleChange(event)}
