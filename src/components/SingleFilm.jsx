@@ -38,7 +38,7 @@ class SingleFilm extends Component {
                                 display: this.state.seeComments ? "block" : "none",
                                 animation: this.state.seeComments
                                     ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both"
-                                    : "scale(0)",
+                                    : "none",
                             }}
                         >
                             <ListGroup.Item className="fw-bold">{film.Title}</ListGroup.Item>
