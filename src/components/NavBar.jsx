@@ -17,7 +17,7 @@ class NavBar extends Component {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav>
+                        <Nav className="w-100 justify-content-between">
                             <div className="d-flex">
                                 <Nav.Link href="#home">Home</Nav.Link>
                                 <Nav.Link href="#link">Tv Show</Nav.Link>

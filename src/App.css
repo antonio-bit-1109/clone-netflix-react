@@ -10,3 +10,11 @@
 .backGround-color {
     background-color: #2b3035;
 }
+
+.single-dimensions {
+    height: 100%;
+}
+
+.max-width {
+    max-width: 300px;
+}
