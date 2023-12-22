@@ -18,3 +18,8 @@
 .max-width {
     max-width: 300px;
 }
+
+.my-extra {
+    margin-top: 4rem !important;
+    margin-bottom: 6rem !important;
+}

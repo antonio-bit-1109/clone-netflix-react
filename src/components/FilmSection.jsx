@@ -55,8 +55,8 @@ class FilmSection extends Component {
         console.log(filmSection);
 
         return (
-            <Container className="my-3" fluid>
-                <div className="my-4">
+            <Container fluid>
+                <div className="my-2">
                     <InputGroup className="mt-5 max-width">
                         <Form.Control
                             placeholder="inserisci il titolo di un film..."

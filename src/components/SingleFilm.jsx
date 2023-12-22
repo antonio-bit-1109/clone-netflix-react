@@ -13,9 +13,12 @@ class SingleFilm extends Component {
         console.log(index);
 
         return (
-            <Col sm={12} md={6} lg={4} xl={2}>
-                <Card className="single-dimensions my-3">
-                    <Card.Img variant="top" src={film.Poster} className="single-dimensions" />
+            <Col className="h-50" sm={12} md={6} lg={4} xl={2}>
+                <Card
+                    className="single-dimensions my-3"
+                    style={{ maxHeight: "100%", minWidth: "200px", objectFit: "cover" }}
+                >
+                    <Card.Img variant="top" src={film.Poster} className="single-dimensions h-100" />
                 </Card>
             </Col>
         );
