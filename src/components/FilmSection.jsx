@@ -53,21 +53,25 @@ class FilmSection extends Component {
     render() {
         const { filmSection } = this.props; /* array di films proveniente da app */
         console.log(filmSection);
+        const { titleSection } = this.props;
 
         return (
             <Container fluid>
                 <div className="my-2">
-                    <InputGroup className="mt-5 max-width">
-                        <Form.Control
-                            placeholder="inserisci il titolo di un film..."
-                            aria-label="Username"
-                            aria-describedby="basic-addon1"
-                            onChange={(event) => this.handleChange(event)}
-                        />
-                        <Button type="button" variant="warning" onClick={this.handleClick}>
-                            Press Here
-                        </Button>
-                    </InputGroup>
+                    <div className="d-flex align-items-end gap-4">
+                        <h4 className="text-light">{titleSection}</h4>
+                        <InputGroup className="mt-5 max-width">
+                            <Form.Control
+                                placeholder="inserisci il titolo di un film..."
+                                aria-label="Username"
+                                aria-describedby="basic-addon1"
+                                onChange={(event) => this.handleChange(event)}
+                            />
+                            <Button type="button" variant="warning" onClick={this.handleClick}>
+                                Press Here
+                            </Button>
+                        </InputGroup>
+                    </div>
                     <Row>
                         {!this.state.arrayOfFilms
                             ? filmSection

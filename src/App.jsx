@@ -63,9 +63,9 @@ class App extends Component {
             <div className="App backGround-color">
                 <NavBar />
                 <SecondSection />
-                <FilmSection filmSection={this.state.filmsBySaga.batman} />
-                <FilmSection filmSection={this.state.filmsBySaga.hulk} />
-                <FilmSection filmSection={this.state.filmsBySaga.matrix} />
+                <FilmSection titleSection="TRENDING NOW" filmSection={this.state.filmsBySaga.batman} />
+                <FilmSection titleSection="WATCH IT AGAIN" filmSection={this.state.filmsBySaga.hulk} />
+                <FilmSection titleSection="NEW RELEASE" filmSection={this.state.filmsBySaga.matrix} />
                 <MyFooter />
             </div>
         );
