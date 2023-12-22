@@ -4,11 +4,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LogoNetflix from "../images/netflix_logo.png";
+import { BellFill, Search } from "react-bootstrap-icons";
+import KidsIcon from "../images/kids_icon.png";
 
 class NavBar extends Component {
     render() {
         return (
-            <Navbar expand="lg" className="bg-body-tertiary">
+            <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
                 <Container fluid>
                     <Navbar.Brand href="#home">
                         <img className="img-width" src={LogoNetflix} alt="" />
@@ -16,19 +18,27 @@ class NavBar extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Tv Show</Nav.Link>
-                            <Nav.Link href="#home">Movies</Nav.Link>
-                            <Nav.Link href="#home">Recently Added</Nav.Link>
-                            <Nav.Link href="#home">My List</Nav.Link>
+                            <div className="d-flex">
+                                <Nav.Link href="#home">Home</Nav.Link>
+                                <Nav.Link href="#link">Tv Show</Nav.Link>
+                                <Nav.Link href="#home">Movies</Nav.Link>
+                                <Nav.Link href="#home">Recently Added</Nav.Link>
+                                <Nav.Link href="#home">My List</Nav.Link>
+                            </div>
 
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
+                            <div className="d-flex align-items-center justify-content-end gap-2 ">
+                                <BellFill className="text-light" />
+                                <p className="m-0 text-light">KIDS</p>
+                                <Search className="text-light" />
+                                <img src={KidsIcon} alt="icon" className="small-icon" />
+                                <NavDropdown id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                </NavDropdown>
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
