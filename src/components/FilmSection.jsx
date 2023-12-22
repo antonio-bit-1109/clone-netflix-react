@@ -53,6 +53,7 @@ class FilmSection extends Component {
     render() {
         const { filmSection } = this.props; /* array di films proveniente da app */
         console.log(filmSection);
+
         const { titleSection } = this.props;
 
         return (

@@ -27,7 +27,7 @@ class SecondSection extends Component {
                         </div>
                     </Col>
                     <Col xs={6}>
-                        <div className="d-flex justify-content-end h-100 align-items-center">
+                        <div className="d-flex justify-content-end h-100 align-items-center gap-1">
                             <div className="border rounded border-secondary d-flex align-items-center p-1">
                                 <List className="text-secondary fs-5" />
                             </div>
