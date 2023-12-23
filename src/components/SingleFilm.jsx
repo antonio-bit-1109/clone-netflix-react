@@ -114,14 +114,20 @@ class SingleFilm extends Component {
                                         placeholder="commento..."
                                         required
                                     />
+
                                     {this.state.submitted ? (
                                         <Alert key={`key-success-${film.imdbID}`} variant={"success"}>
                                             Commento inviato con successo!
                                         </Alert>
                                     ) : (
+                                        ""
+                                    )}
+                                    {this.state.submitted === false ? (
                                         <Alert key={`key-danger-${film.imdbID}`} variant={"danger"}>
                                             Errore! commento non inviato.
                                         </Alert>
+                                    ) : (
+                                        ""
                                     )}
 
                                     <Form.Check
