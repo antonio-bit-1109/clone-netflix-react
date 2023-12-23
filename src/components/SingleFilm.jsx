@@ -3,12 +3,13 @@ import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button, Form } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
 
 class SingleFilm extends Component {
     state = {
         seeComments: false,
         fullComment: { email: "", name: "", surname: "", adult: false, comment: "", dateTime: "", phone: "" },
-        feedBack: "",
+        submitted: null,
     };
 
     handleSubmit(event) {
@@ -30,6 +31,9 @@ class SingleFilm extends Component {
             .then((response) => {
                 console.log(response);
                 if (!response.ok) {
+                    /*  */
+                    this.setState({ submitted: false });
+
                     if (response.status > 400 && response.status < 500) {
                         if (response.status === 429) {
                             throw new Error("429 INFAME, PER TE SOLO LE LAME!");
@@ -42,6 +46,7 @@ class SingleFilm extends Component {
                         console.log(response.status);
                         console.log("SPEDITO, DAIE!");
                     }
+                    this.setState({ submitted: true });
                 }
             })
             .catch((err) => console.error(err));
@@ -109,12 +114,21 @@ class SingleFilm extends Component {
                                         placeholder="commento..."
                                         required
                                     />
+                                    {this.state.submitted ? (
+                                        <Alert key={`key-success-${film.imdbID}`} variant={"success"}>
+                                            Commento inviato con successo!
+                                        </Alert>
+                                    ) : (
+                                        <Alert key={`key-danger-${film.imdbID}`} variant={"danger"}>
+                                            Errore! commento non inviato.
+                                        </Alert>
+                                    )}
+
                                     <Form.Check
                                         className="d-flex gap-2" // prettier-ignore
                                         type="switch"
                                         id="custom-switch"
                                         label="hai più di 18 anni? (⊙_⊙)"
-                                        required
                                         onChange={(event) =>
                                             this.setState({
                                                 fullComment: { ...this.state.fullComment, adult: event.target.checked },
@@ -187,7 +201,6 @@ class SingleFilm extends Component {
                                             });
                                         }}
                                         placeholder="numero cell"
-                                        required
                                     />
 
                                     <Form.Text id="passwordHelpBlock" muted></Form.Text>
