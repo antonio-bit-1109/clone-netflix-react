@@ -5,6 +5,7 @@ import SingleFilm from "./SingleFilm";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Button } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 
 class FilmSection extends Component {
     state = {
@@ -72,7 +73,13 @@ class FilmSection extends Component {
                                 Press Here
                             </Button>
                         </InputGroup>
+                        {/* qui c'è lo spinner  */}
+                        <Spinner animation="grow" variant="success">
+                            {" "}
+                            <div className="ms-5 d-flex align-items-center"> Attendere...</div>
+                        </Spinner>
                     </div>
+
                     <Row>
                         {!this.state.arrayOfFilms
                             ? filmSection
