@@ -7,22 +7,33 @@ import { Button, Form } from "react-bootstrap";
 class SingleFilm extends Component {
     state = {
         seeComments: false,
-        fullComment: { email: "", name: "", surname: "", adult: false, comment: "" },
+        fullComment: { email: "", name: "", surname: "", adult: false, comment: "", dateTime: "", phone: "" },
+        feedBack: "",
     };
 
     handleSubmit(event) {
         event.preventDefault();
+
+        this.postAFetch();
+    }
+
+    postAFetch() {
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(this.state.fullComment),
+        };
+
+        fetch("https://striveschool-api.herokuapp.com/api/reservation", options).then((response) =>
+            console.log(response.status)
+        );
     }
 
     handleinputValue(event) {
         this.setState({ fullComment: { ...this.state.fullComment, comment: event.target.value } });
     }
-
-    componentDidMount() {
-        this.handleFetch();
-    }
-
-    handleFetch() {}
 
     render() {
         const { film } = this.props;
@@ -66,17 +77,101 @@ class SingleFilm extends Component {
                             <ListGroup.Item>{film.imdbID}</ListGroup.Item>
 
                             <div>
-                                <Form onSubmit={(event) => this.handleSubmit(event)}>
-                                    <Form.Label htmlFor="inputPassword5" className="fw-bold p-1">
-                                        Hai già visto questo film? Lascia un commento!
+                                <Form
+                                    className="d-flex flex-column gap-2"
+                                    onSubmit={(event) => this.handleSubmit(event)}
+                                >
+                                    <Form.Label htmlFor="comment" className="fw-bold p-1 mt-1">
+                                        Hai già visto questo film? Inviaci un commento!
                                     </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id={film.imdbID}
+                                        aria-describedby="textComment"
+                                        rows={3}
+                                        onChange={(event) => this.handleinputValue(event)}
+                                        placeholder="commento..."
+                                        required
+                                    />
+                                    <Form.Check
+                                        className="d-flex gap-2" // prettier-ignore
+                                        type="switch"
+                                        id="custom-switch"
+                                        label="hai più di 18 anni? (⊙_⊙)"
+                                        required
+                                        onChange={(event) =>
+                                            this.setState({
+                                                fullComment: { ...this.state.fullComment, adult: event.target.checked },
+                                            })
+                                        }
+                                    />
                                     <Form.Control
                                         type="text"
                                         id={film.imdbID}
                                         aria-describedby="passwordHelpBlock"
                                         rows={3}
-                                        onChange={(event) => this.handleinputValue(event)}
-                                        placeholder="commento..."
+                                        onChange={(event) => {
+                                            this.setState({
+                                                fullComment: { ...this.state.fullComment, name: event.target.value },
+                                            });
+                                        }}
+                                        placeholder="Inserisci nome..."
+                                        required
+                                    />
+                                    <Form.Control
+                                        type="text"
+                                        id={film.imdbID}
+                                        aria-describedby="passwordHelpBlock"
+                                        rows={3}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                fullComment: { ...this.state.fullComment, surname: event.target.value },
+                                            });
+                                        }}
+                                        placeholder="inserisci cognome..."
+                                        required
+                                    />
+                                    <Form.Control
+                                        type="text"
+                                        id={film.imdbID}
+                                        aria-describedby="passwordHelpBlock"
+                                        rows={3}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                fullComment: { ...this.state.fullComment, email: event.target.value },
+                                            });
+                                        }}
+                                        placeholder="inserisci email..."
+                                        required
+                                    />
+                                    <Form.Control
+                                        type="datetime-local"
+                                        id={film.imdbID}
+                                        aria-describedby="passwordHelpBlock"
+                                        rows={3}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                fullComment: {
+                                                    ...this.state.fullComment,
+                                                    dateTime: event.target.value,
+                                                },
+                                            });
+                                        }}
+                                        placeholder="quando l'hai visto?"
+                                        required
+                                    />
+                                    <Form.Control
+                                        type="text"
+                                        id={film.imdbID}
+                                        aria-describedby="passwordHelpBlock"
+                                        rows={3}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                fullComment: { ...this.state.fullComment, phone: event.target.value },
+                                            });
+                                        }}
+                                        placeholder="numero cell"
+                                        required
                                     />
 
                                     <Form.Text id="passwordHelpBlock" muted></Form.Text>
