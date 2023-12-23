@@ -26,9 +26,25 @@ class SingleFilm extends Component {
             body: JSON.stringify(this.state.fullComment),
         };
 
-        fetch("https://striveschool-api.herokuapp.com/api/reservation", options).then((response) =>
-            console.log(response.status)
-        );
+        fetch("https://striveschool-api.herokuapp.com/api/reservation", options)
+            .then((response) => {
+                console.log(response);
+                if (!response.ok) {
+                    if (response.status > 400 && response.status < 500) {
+                        if (response.status === 429) {
+                            throw new Error("429 INFAME, PER TE SOLO LE LAME!");
+                        }
+                    } else {
+                        throw new Error("OCCHIO! STAI CAPPELLANDO DA QUALCHE PARTE!");
+                    }
+                } else {
+                    if (response.status > 200 && response.status < 300) {
+                        console.log(response.status);
+                        console.log("SPEDITO, DAIE!");
+                    }
+                }
+            })
+            .catch((err) => console.error(err));
     }
 
     handleinputValue(event) {
