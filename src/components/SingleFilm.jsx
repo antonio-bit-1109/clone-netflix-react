@@ -207,6 +207,7 @@ class SingleFilm extends Component {
                                             });
                                         }}
                                         placeholder="numero cell"
+                                        required
                                     />
 
                                     <Form.Text id="passwordHelpBlock" muted></Form.Text>
