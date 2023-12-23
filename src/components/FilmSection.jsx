@@ -11,6 +11,7 @@ class FilmSection extends Component {
     state = {
         inputValue: "",
         arrayOfFilms: null,
+        isLoading: false,
     };
 
     handleChange(event) {
@@ -22,6 +23,7 @@ class FilmSection extends Component {
     };
 
     FetchAGet(value) {
+        this.setState({ isLoading: true });
         const options = {
             method: "GET",
             headers: {},
@@ -29,6 +31,7 @@ class FilmSection extends Component {
 
         fetch(`http://www.omdbapi.com/?s=${value}&apikey=195f13a4`, options)
             .then((response) => {
+                /*  */
                 if (!response.ok) {
                     if (response.status > 400 && response.status < 500) {
                         if (response.status === 429) {
@@ -47,8 +50,10 @@ class FilmSection extends Component {
             })
             .then((data) => {
                 console.log(data);
-                this.setState({ arrayOfFilms: data.Search });
-            });
+                /* riporto is loading a false  */
+                this.setState({ arrayOfFilms: data.Search, isLoading: false });
+            })
+            .catch((err) => console.error(err));
     }
 
     render() {
@@ -73,11 +78,18 @@ class FilmSection extends Component {
                                 Press Here
                             </Button>
                         </InputGroup>
-                        {/* qui c'è lo spinner  */}
-                        <Spinner animation="grow" variant="success">
-                            {" "}
-                            <div className="ms-5 d-flex align-items-center"> Attendere...</div>
-                        </Spinner>
+
+                        {/* qui c'è lo spinner down */}
+
+                        {this.state.isLoading ? (
+                            <Spinner animation="grow" variant="success">
+                                {" "}
+                                <div className="ms-5 d-flex align-items-center"> Attendere...</div>
+                            </Spinner>
+                        ) : (
+                            ""
+                        )}
+                        {/* spinner up */}
                     </div>
 
                     <Row>
