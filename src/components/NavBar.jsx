@@ -6,6 +6,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LogoNetflix from "../images/netflix_logo.png";
 import { BellFill, Search } from "react-bootstrap-icons";
 import KidsIcon from "../images/kids_icon.png";
+import { Link } from "react-router-dom";
+import SettingsPage from "./SettingsPage";
 
 class NavBar extends Component {
     render() {
@@ -32,7 +34,12 @@ class NavBar extends Component {
                                 <Search className="text-light" />
                                 <img src={KidsIcon} alt="icon" className="small-icon" />
                                 <NavDropdown id="basic-nav-dropdown" className="btn-group dropstart">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                    <Link to={SettingsPage}>
+                                        {" "}
+                                        <NavDropdown.Item style={{ color: "red" }} href="#action/3.1">
+                                            Settings Page{" "}
+                                        </NavDropdown.Item>
+                                    </Link>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                     <NavDropdown.Divider />
