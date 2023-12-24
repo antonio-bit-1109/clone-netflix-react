@@ -9,6 +9,7 @@ import { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
+import FirstLoad from "./components/FirstLoad";
 
 class App extends Component {
     state = {
@@ -18,6 +19,7 @@ class App extends Component {
             matrix: [],
         },
         isDataLoaded: null,
+        showFirstLoad: true,
     };
 
     fetchFilms = async (NomeSaga) => {
@@ -64,16 +66,24 @@ class App extends Component {
         this.setState({ isDataLoaded: true });
     }
 
+    /* PASSARE INFO DA FIGLIO A PADRE */
+    /* 1. DEFINISCO UNA FUNZIONE NEL PADRE */
+    handleNavbarButtonClick = (value) => {
+        this.setState({ showFirstLoad: value });
+    };
+
     render() {
         const { isDataLoaded } = this.state;
+        const { showFirstLoad } = this.state;
 
         return (
             <Router>
                 <div className="App backGround-color">
-                    <NavBar />
+                    {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
+                    <NavBar handleNavbarButtonClick={this.handleNavbarButtonClick} />
                     <SecondSection />
+                    {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
-                        {" "}
                         {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
                         {isDataLoaded === true && (
                             <Route path="/homePage" element={<MainPage filmSection={this.state.filmsBySaga} />} />

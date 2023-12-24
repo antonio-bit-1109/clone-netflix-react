@@ -34,3 +34,12 @@
         transform-origin: 50% 0;
     }
 }
+
+#alert-iniziale {
+    height: 200px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.mb-10 {
+    margin-bottom: 14rem !important;
+}

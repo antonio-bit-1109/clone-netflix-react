@@ -78,7 +78,7 @@ const MyFooter = () => {
                                 Service Code
                             </button>
                         </div>
-                        <div className="d-flex justify-content-center mb-5">
+                        <div className="d-flex justify-content-center mb-10">
                             <div>©1999-2009 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, vel?</div>{" "}
                         </div>
                     </Col>
