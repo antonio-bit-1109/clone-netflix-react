@@ -5,6 +5,9 @@ import SecondSection from "./components/SecondSection";
 import MyFooter from "./components/MyFooter";
 import FilmSection from "./components/FilmSection";
 import { Component } from "react";
+/* importo browser router */
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SettingsPage from "./components/SettingsPage";
 
 class App extends Component {
     state = {
@@ -60,14 +63,35 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App backGround-color">
-                <NavBar />
-                <SecondSection />
-                <FilmSection titleSection="Trending Now" filmSection={this.state.filmsBySaga.batman} />
-                <FilmSection titleSection="Watch It Again" filmSection={this.state.filmsBySaga.hulk} />
-                <FilmSection titleSection="New Release" filmSection={this.state.filmsBySaga.matrix} />
-                <MyFooter />
-            </div>
+            <Router>
+                <div className="App backGround-color">
+                    <NavBar />
+                    <SecondSection />
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <>
+                                    <FilmSection
+                                        titleSection="Trending Now"
+                                        filmSection={this.state.filmsBySaga.batman}
+                                    />
+                                    <FilmSection
+                                        titleSection="Watch It Again"
+                                        filmSection={this.state.filmsBySaga.hulk}
+                                    />
+                                    <FilmSection
+                                        titleSection="New Release"
+                                        filmSection={this.state.filmsBySaga.matrix}
+                                    />
+                                </>
+                            }
+                        />
+                        <Route path="/SettingsPage" element={<SettingsPage />} />
+                    </Routes>{" "}
+                    <MyFooter />
+                </div>
+            </Router>
         );
     }
 }

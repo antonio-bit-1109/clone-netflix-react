@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LogoNetflix from "../images/netflix_logo.png";
 import { BellFill, Search } from "react-bootstrap-icons";
 import KidsIcon from "../images/kids_icon.png";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
     render() {
@@ -23,7 +24,12 @@ class NavBar extends Component {
                                 <Nav.Link href="#link">Tv Show</Nav.Link>
                                 <Nav.Link href="#home">Movies</Nav.Link>
                                 <Nav.Link href="#home">Recently Added</Nav.Link>
-                                <Nav.Link href="#home">My List</Nav.Link>
+                                <Link to={"/SettingsPage"} className="d-flex align-items-center text-decoration-none ">
+                                    {" "}
+                                    <div style={{ color: "red" }} href="#home">
+                                        Settings Page{" "}
+                                    </div>
+                                </Link>
                             </div>
 
                             <div className="d-flex align-items-center justify-content-end gap-2 ">
@@ -33,9 +39,7 @@ class NavBar extends Component {
                                 <img src={KidsIcon} alt="icon" className="small-icon" />
                                 <NavDropdown id="basic-nav-dropdown" className="btn-group dropstart">
                                     {" "}
-                                    <NavDropdown.Item style={{ color: "red" }} href="#action/3.1">
-                                        Settings Page{" "}
-                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.1">Settings Page </NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                     <NavDropdown.Divider />
