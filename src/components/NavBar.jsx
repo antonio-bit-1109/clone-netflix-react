@@ -31,7 +31,7 @@ class NavBar extends Component {
                                 <p className="m-0 text-light">KIDS</p>
                                 <Search className="text-light" />
                                 <img src={KidsIcon} alt="icon" className="small-icon" />
-                                <NavDropdown id="basic-nav-dropdown">
+                                <NavDropdown id="basic-nav-dropdown" className="btn-group dropstart">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
