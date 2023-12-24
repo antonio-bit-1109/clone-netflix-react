@@ -20,7 +20,9 @@ class NavBar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="w-100 justify-content-between">
                             <div className="d-flex">
-                                <Nav.Link href="#home">Home</Nav.Link>
+                                <Link to={"/homePage"} className="d-flex align-items-center text-decoration-none">
+                                    <div style={{ color: "red" }}> Home</div>
+                                </Link>
                                 <Nav.Link href="#link">Tv Show</Nav.Link>
                                 <Nav.Link href="#home">Movies</Nav.Link>
                                 <Nav.Link href="#home">Recently Added</Nav.Link>

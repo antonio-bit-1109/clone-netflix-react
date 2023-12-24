@@ -3,11 +3,12 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SecondSection from "./components/SecondSection";
 import MyFooter from "./components/MyFooter";
-import FilmSection from "./components/FilmSection";
+
 import { Component } from "react";
 /* importo browser router */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SettingsPage from "./components/SettingsPage";
+import MainPage from "./components/MainPage";
 
 class App extends Component {
     state = {
@@ -16,6 +17,7 @@ class App extends Component {
             hulk: [],
             matrix: [],
         },
+        isDataLoaded: null,
     };
 
     fetchFilms = async (NomeSaga) => {
@@ -30,7 +32,7 @@ class App extends Component {
             if (!response.ok) {
                 if (response.status > 400 && response.status < 500) {
                     if (response.status === 429) {
-                        throw new Error("429 INFAME PER TE TANTE COSE BRUTTE");
+                        throw new Error("429 INFAME, PER TE TANTE COSE BRUTTE, (tipo le lame)");
                     } else {
                         throw new Error("STAI CAPPELLANDO, RIGUARDA QUELLO CHE HAI SCRITTO");
                     }
@@ -59,34 +61,23 @@ class App extends Component {
         this.fetchFilms("batman");
         this.fetchFilms("hulk");
         this.fetchFilms("matrix");
+        this.setState({ isDataLoaded: true });
     }
 
     render() {
+        const { isDataLoaded } = this.state;
+
         return (
             <Router>
                 <div className="App backGround-color">
                     <NavBar />
                     <SecondSection />
                     <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <>
-                                    <FilmSection
-                                        titleSection="Trending Now"
-                                        filmSection={this.state.filmsBySaga.batman}
-                                    />
-                                    <FilmSection
-                                        titleSection="Watch It Again"
-                                        filmSection={this.state.filmsBySaga.hulk}
-                                    />
-                                    <FilmSection
-                                        titleSection="New Release"
-                                        filmSection={this.state.filmsBySaga.matrix}
-                                    />
-                                </>
-                            }
-                        />
+                        {" "}
+                        {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
+                        {isDataLoaded === true && (
+                            <Route path="/homePage" element={<MainPage filmSection={this.state.filmsBySaga} />} />
+                        )}
                         <Route path="/SettingsPage" element={<SettingsPage />} />
                     </Routes>{" "}
                     <MyFooter />
