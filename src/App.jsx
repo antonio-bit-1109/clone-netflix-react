@@ -83,7 +83,6 @@ class App extends Component {
                     {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
                     <NavBar handleNavbarButtonClick={this.handleNavbarButtonClick} />
                     <SecondSection />
-                    {/*  <ProfilePage /> */}
                     {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
                         {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
@@ -93,6 +92,7 @@ class App extends Component {
                         <Route path="/SettingsPage" element={<SettingsPage />} />
                     </Routes>{" "}
                     <MyFooter />
+                    <ProfilePage />
                 </div>
             </Router>
         );
