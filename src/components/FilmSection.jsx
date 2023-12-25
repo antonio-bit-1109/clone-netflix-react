@@ -6,16 +6,18 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Button } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
+import AlertFilmNotFound from "./AlertFilmNotFound";
 
 class FilmSection extends Component {
     state = {
         inputValue: "",
         arrayOfFilms: null,
         isLoading: false,
+        filmNotFound: null,
     };
 
     handleChange(event) {
-        this.setState({ ...this.state, inputValue: event.target.value });
+        this.setState({ ...this.state, inputValue: event.target.value, filmNotFound: false });
     }
 
     handleClick = () => {
@@ -44,12 +46,16 @@ class FilmSection extends Component {
                         throw new Error("SERVER SPOMPATO, NON FUNZIA??");
                     }
                 } else {
-                    console.log(response);
                     return response.json();
                 }
             })
             .then((data) => {
                 console.log(data);
+                if (data.Error) {
+                    console.error(data.Error);
+                    this.setState({ filmNotFound: true });
+                }
+
                 /* riporto is loading a false  */
                 this.setState({ arrayOfFilms: data.Search, isLoading: false });
             })
@@ -78,11 +84,12 @@ class FilmSection extends Component {
                                 Press Here
                             </Button>
                         </InputGroup>
+                        {this.state.filmNotFound && <AlertFilmNotFound inputValue={this.state.inputValue} />}
 
-                        {/* qui c'è lo spinner down */}
+                        {/* qui c'è lo spinner */}
 
                         {this.state.isLoading ? (
-                            <Spinner animation="grow" variant="success">
+                            <Spinner animation="grow" variant="warning">
                                 {" "}
                                 <div className="ms-5 d-flex align-items-center"> Attendere...</div>
                             </Spinner>
