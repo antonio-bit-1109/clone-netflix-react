@@ -94,7 +94,7 @@ class SingleFilm extends Component {
                                     className="d-flex flex-column gap-2"
                                     onSubmit={(event) => this.handleSubmit(event)}
                                 >
-                                    <Form.Label htmlFor="comment" className="fw-bold p-1 mt-1">
+                                    <Form.Label htmlFor="comment" className="fw-bold p-1 my-1 mt-3 fs-5">
                                         Hai già visto questo film? Inviaci un commento!
                                     </Form.Label>
                                     <Form.Control
