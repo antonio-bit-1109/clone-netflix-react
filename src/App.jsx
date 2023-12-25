@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
+import ProfilePage from "./components/ProfilePage";
 
 class App extends Component {
     state = {
@@ -82,6 +83,7 @@ class App extends Component {
                     {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
                     <NavBar handleNavbarButtonClick={this.handleNavbarButtonClick} />
                     <SecondSection />
+                    <ProfilePage />
                     {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
                         {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
