@@ -77,7 +77,7 @@ const ProfilePage = () => {
                         </Col>
                         <hr />
                         <Col>
-                            <div>
+                            <div className="mb-3">
                                 <h3>Autoplay controls </h3>
                                 <div className="d-flex flex-column align-items-start">
                                     {" "}

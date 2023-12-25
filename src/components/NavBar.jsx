@@ -47,6 +47,17 @@ class NavBar extends Component {
                                         Settings Page{" "}
                                     </div>
                                 </Link>
+                                <Link
+                                    /* 4. LA RICHIAMO ON CLICK E PASSO UN VALORE COME PARAMETRO  */
+                                    onClick={() => handleNavbarButtonClick(false)}
+                                    to={"/ProfilePage"}
+                                    className="d-flex align-items-center text-decoration-none ms-2"
+                                >
+                                    {" "}
+                                    <div style={{ color: "red" }} href="#home">
+                                        Profile Page{" "}
+                                    </div>
+                                </Link>
                             </div>
 
                             <div className="d-flex align-items-center justify-content-end gap-2 ">

@@ -90,9 +90,9 @@ class App extends Component {
                             <Route path="/homePage" element={<MainPage filmSection={this.state.filmsBySaga} />} />
                         )}
                         <Route path="/SettingsPage" element={<SettingsPage />} />
+                        <Route path="/ProfilePage" element={<ProfilePage />} />
                     </Routes>{" "}
                     <MyFooter />
-                    <ProfilePage />
                 </div>
             </Router>
         );
