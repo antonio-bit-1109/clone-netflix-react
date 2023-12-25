@@ -25,22 +25,22 @@ class NavBar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="w-100 justify-content-between">
                             <div className="d-flex">
+                                <Nav.Link href="#link">Tv Show</Nav.Link>
+                                <Nav.Link href="#home">Movies</Nav.Link>
+                                <Nav.Link href="#home">Recently Added</Nav.Link>{" "}
                                 <Link
                                     /* 4. LA RICHIAMO ON CLICK E PASSO UN VALORE COME PARAMETRO  */
                                     onClick={() => handleNavbarButtonClick(false)}
                                     to={"/homePage"}
-                                    className="d-flex align-items-center text-decoration-none"
+                                    className="d-flex align-items-center text-decoration-none px-3"
                                 >
                                     <div style={{ color: "red" }}> Home</div>
                                 </Link>
-                                <Nav.Link href="#link">Tv Show</Nav.Link>
-                                <Nav.Link href="#home">Movies</Nav.Link>
-                                <Nav.Link href="#home">Recently Added</Nav.Link>
                                 <Link
                                     /* 4. LA RICHIAMO ON CLICK E PASSO UN VALORE COME PARAMETRO  */
                                     onClick={() => handleNavbarButtonClick(false)}
                                     to={"/SettingsPage"}
-                                    className="d-flex align-items-center text-decoration-none "
+                                    className="d-flex align-items-center text-decoration-none"
                                 >
                                     {" "}
                                     <div style={{ color: "red" }} href="#home">
