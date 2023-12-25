@@ -84,7 +84,7 @@ class SingleFilm extends Component {
                     />
                     <div>
                         <ListGroup
-                            className="text-center"
+                            className="text-center p-3"
                             style={{
                                 display: this.state.seeComments ? "block" : "none",
                                 animation: this.state.seeComments
