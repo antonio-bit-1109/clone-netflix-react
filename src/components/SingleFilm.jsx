@@ -67,19 +67,11 @@ class SingleFilm extends Component {
 
         return (
             <Col className="h-50" sm={12} md={6} lg={4} xl={2}>
-                <Card
-                    className="single-dimensions my-3"
-                    style={{
-                        maxHeight: "100%",
-                        minWidth: "200px",
-                        objectFit: "cover",
-                        /*  display: this.state.seeComments ? "block" : "none", */
-                    }}
-                >
+                <Card className="my-3 h-100">
                     <Card.Img
                         variant="top"
                         src={film.Poster}
-                        className="single-dimensions h-100"
+                        className=" h-100"
                         onClick={() => this.setState({ seeComments: !this.state.seeComments })}
                     />
                     <div>

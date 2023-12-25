@@ -11,10 +11,7 @@
     background-color: #2b3035;
 }
 
-.single-dimensions {
-    height: 100%;
-}
-
+/* input-width above the cards  */
 .max-width {
     max-width: 300px;
 }
