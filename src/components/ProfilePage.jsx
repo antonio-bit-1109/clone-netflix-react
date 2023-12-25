@@ -1,8 +1,5 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
 import LogoRandom from "../images/logo-random.jpg";
-
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 
 const ProfilePage = () => {
     return (
@@ -18,7 +15,7 @@ const ProfilePage = () => {
                 </Row>
                 <Row className="justify-content-center">
                     <Col sm={2}>
-                        <div className="d-flex align-items-start justify-content-end">
+                        <div className="d-flex align-items-start justify-content-center justify-content-md-end">
                             <img src={LogoRandom} alt="logorandom" style={{ width: "100px" }} />
                         </div>
                     </Col>
@@ -31,33 +28,23 @@ const ProfilePage = () => {
                                 <div className="mt-4">
                                     <h5>Language:</h5>
                                 </div>
-                                <div class="dropdown">
-                                    <button
-                                        class="btn btn-dark dropdown-toggle border-light px-4 py-1"
-                                        type="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="dark" id="dropdown-basic">
                                         English
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                Korean
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                Klingonian
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                Romanesco Stretto
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu className="bg-dark">
+                                        <Dropdown.Item className="text-light" href="#/action-1">
+                                            Romanesco Antico
+                                        </Dropdown.Item>
+                                        <Dropdown.Item className="text-light" href="#/action-2">
+                                            Latino
+                                        </Dropdown.Item>
+                                        <Dropdown.Item className="text-light" href="#/action-3">
+                                            Aramaico
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>{" "}
                             </div>
                         </Col>
                         <hr />
@@ -94,7 +81,8 @@ const ProfilePage = () => {
                         </Col>
                     </Col>
                 </Row>
-                <hr />
+                <hr className="w-50 mx-auto" />
+
                 <Row>
                     <Col>
                         <div className="d-flex gap-2 justify-content-center">
