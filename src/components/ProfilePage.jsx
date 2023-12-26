@@ -15,7 +15,7 @@ const ProfilePage = () => {
                 </Row>
                 <Row className="justify-content-center">
                     <Col sm={2}>
-                        <div className="d-flex align-items-start justify-content-center justify-content-md-end">
+                        <div className="d-flex align-items-start justify-content-center justify-content-md-end mx-2">
                             <img src={LogoRandom} alt="logorandom" style={{ width: "100px" }} />
                         </div>
                     </Col>
