@@ -11,11 +11,11 @@ class SingleFilm extends Component {
         submitted: null,
     };
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
 
         this.postAFetch();
-    }
+    };
 
     handleFullComment = (propertyName, propertyValue) => {
         this.setState({
@@ -57,9 +57,9 @@ class SingleFilm extends Component {
             .catch((err) => console.error(err));
     }
 
-    handleinputValue(event) {
+    handleinputValue = (event) => {
         this.setState({ fullComment: { ...this.state.fullComment, comment: event.target.value } });
-    }
+    };
 
     render() {
         const { film } = this.props;
