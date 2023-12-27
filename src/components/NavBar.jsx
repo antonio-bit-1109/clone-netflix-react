@@ -19,31 +19,42 @@ class NavBar extends Component {
             <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
                 <Container fluid>
                     <Navbar.Brand href="#home">
-                        <img className="img-width" src={LogoNetflix} alt="" />
+                        <Link to={"/homePage"}>
+                            <img className="img-width" src={LogoNetflix} alt="" />
+                        </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="w-100 justify-content-between">
-                            <div className="d-flex">
-                                <Nav.Link href="#link">Tv Show</Nav.Link>
-                                <Nav.Link href="#home">Movies</Nav.Link>
-                                <Nav.Link href="#home">Recently Added</Nav.Link>{" "}
+                            <div className="d-flex flex-column justify-content-center align-items-center flex-lg-row">
+                                <Nav.Link className="p-1" href="#link">
+                                    Tv Show
+                                </Nav.Link>
+                                <Nav.Link className="p-1" href="#home">
+                                    Movies
+                                </Nav.Link>
+                                <Nav.Link className="p-1" href="#home">
+                                    Recently Added
+                                </Nav.Link>{" "}
                                 <Link
+                                    to={"/homePage"}
                                     /* 4. LA RICHIAMO ON CLICK E PASSO UN VALORE COME PARAMETRO  */
                                     onClick={() => handleNavbarButtonClick(false)}
-                                    to={"/homePage"}
                                     className="d-flex align-items-center text-decoration-none px-3"
                                 >
-                                    <div style={{ color: "red" }}> Home</div>
+                                    <div className="p-0" style={{ color: "red" }}>
+                                        {" "}
+                                        Home
+                                    </div>
                                 </Link>
                                 <Link
                                     /* 4. LA RICHIAMO ON CLICK E PASSO UN VALORE COME PARAMETRO  */
                                     onClick={() => handleNavbarButtonClick(false)}
                                     to={"/SettingsPage"}
-                                    className="d-flex align-items-center text-decoration-none"
+                                    className="d-flex align-items-center text-decoration-none "
                                 >
                                     {" "}
-                                    <div style={{ color: "red" }} href="#home">
+                                    <div className="p-0" style={{ color: "red" }} href="#home">
                                         Settings Page{" "}
                                     </div>
                                 </Link>
@@ -54,13 +65,13 @@ class NavBar extends Component {
                                     className="d-flex align-items-center text-decoration-none ms-2"
                                 >
                                     {" "}
-                                    <div style={{ color: "red" }} href="#home">
+                                    <div className="pt-1" style={{ color: "red" }} href="#home">
                                         Profile Page{" "}
                                     </div>
                                 </Link>
                             </div>
 
-                            <div className="d-flex align-items-center justify-content-end gap-2 ">
+                            <div className=" align-items-center justify-content-end gap-2 d-none d-lg-flex">
                                 <BellFill className="text-light" />
                                 <p className="m-0 text-light">KIDS</p>
                                 <Search className="text-light" />
