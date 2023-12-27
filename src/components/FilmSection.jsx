@@ -4,7 +4,7 @@ import Row from "react-bootstrap/esm/Row";
 import SingleFilm from "./SingleFilm";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import { Button } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import AlertFilmNotFound from "./AlertFilmNotFound";
 
@@ -72,18 +72,29 @@ class FilmSection extends Component {
             <Container fluid>
                 <div className="my-2">
                     <div className="d-flex align-items-end gap-4">
-                        <h4 className="text-light">{titleSection}</h4>
-                        <InputGroup className="mt-5 max-width">
-                            <Form.Control
-                                placeholder="Cerca un film..."
-                                aria-label="Username"
-                                aria-describedby="basic-addon1"
-                                onChange={(event) => this.handleChange(event)}
-                            />
-                            <Button type="button" variant="warning" onClick={this.handleClick}>
-                                Press Here
-                            </Button>
-                        </InputGroup>
+                        <Row>
+                            <Col sm={12} md={3} lg={5}>
+                                {" "}
+                                <div className="d-flex align-items-end h-100">
+                                    {" "}
+                                    <h4 className="text-light">{titleSection}</h4>
+                                </div>
+                            </Col>
+
+                            <Col sm={12} md={9} lg={7}>
+                                <InputGroup className="mt-5 max-width">
+                                    <Form.Control
+                                        placeholder="Cerca un film..."
+                                        aria-label="Username"
+                                        aria-describedby="basic-addon1"
+                                        onChange={(event) => this.handleChange(event)}
+                                    />
+                                    <Button type="button" variant="warning" onClick={this.handleClick}>
+                                        Press Here
+                                    </Button>
+                                </InputGroup>
+                            </Col>
+                        </Row>
                         {this.state.filmNotFound && <AlertFilmNotFound inputValue={this.state.inputValue} />}
 
                         {/* qui c'è lo spinner */}
