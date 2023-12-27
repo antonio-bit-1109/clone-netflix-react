@@ -71,7 +71,7 @@ class SingleFilm extends Component {
                     <Card.Img
                         variant="top"
                         src={film.Poster}
-                        className=" h-100"
+                        className="gallery-img"
                         onClick={() => this.setState({ seeComments: !this.state.seeComments })}
                     />
                     <div>

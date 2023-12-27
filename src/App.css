@@ -40,3 +40,39 @@
 .mb-10 {
     margin-bottom: 14rem !important;
 }
+
+.gallery-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: all 300ms;
+}
+
+.gallery-img:hover {
+    scale: 1.1;
+    box-shadow: 3px 3px 3px black;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.input-style {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+
+    position: relative;
+    top: 4px;
+}
+
+.input-style:checked {
+    border: 6px solid rgb(35, 180, 224);
+    outline: unset !important; /* I added this one for Edge (chromium) support */
+}

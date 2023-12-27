@@ -70,11 +70,23 @@ const ProfilePage = () => {
                                     {" "}
                                     <div>
                                         {" "}
-                                        <input type="checkbox" name="checkbox0" id="check0" /> Lorem, ipsum dolor.{" "}
+                                        <input
+                                            className="input-style"
+                                            type="checkbox"
+                                            name="checkbox0"
+                                            id="check0"
+                                        />{" "}
+                                        Lorem, ipsum dolor.{" "}
                                     </div>
                                     <div>
                                         {" "}
-                                        <input type="checkbox" name="checkbox0" id="check0" /> Lorem, ipsum dolor.{" "}
+                                        <input
+                                            className="input-style"
+                                            type="checkbox"
+                                            name="checkbox0"
+                                            id="check0"
+                                        />{" "}
+                                        Lorem, ipsum dolor.{" "}
                                     </div>
                                 </div>
                             </div>
