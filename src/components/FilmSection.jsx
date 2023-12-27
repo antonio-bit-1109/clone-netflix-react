@@ -109,7 +109,6 @@ class FilmSection extends Component {
                         )}
                         {/* spinner up */}
                     </div>
-
                     <Row>
                         {!this.state.arrayOfFilms
                             ? filmSection
