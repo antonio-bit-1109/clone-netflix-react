@@ -82,16 +82,13 @@ class SingleFilm extends Component {
         return (
             <Col className="h-50" sm={12} md={6} lg={4} xl={2}>
                 <Card className="my-3 h-100">
-                    <Carousel>
-                        <Carousel.Item>
-                            <Card.Img
-                                variant="top"
-                                src={film.Poster}
-                                className="gallery-img"
-                                onClick={() => this.setState({ seeComments: !this.state.seeComments })}
-                            />
-                        </Carousel.Item>
-                    </Carousel>
+                    <Card.Img
+                        variant="top"
+                        src={film.Poster}
+                        className="gallery-img"
+                        onClick={() => this.setState({ seeComments: !this.state.seeComments })}
+                    />
+
                     <div>
                         <ListGroup
                             className="text-center p-3"
