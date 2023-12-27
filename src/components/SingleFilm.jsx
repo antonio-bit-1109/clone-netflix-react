@@ -3,6 +3,7 @@ import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import FormComponent from "./FormComponent";
+import { Carousel } from "react-bootstrap";
 
 class SingleFilm extends Component {
     state = {
@@ -17,11 +18,19 @@ class SingleFilm extends Component {
         this.postAFetch();
     }
 
-    handleFullComment = (event, propertyName, propertyValue) => {
+    handleFullComment = (propertyName, propertyValue) => {
         this.setState({
             fullComment: { ...this.state.fullComment, [propertyName]: propertyValue /* event.target.checked */ },
         });
     };
+
+    /*  componentDidMount() {
+        fetchGetImages();
+    }
+
+    fetchGetImages() {
+        fetch();
+    } */
 
     postAFetch() {
         const options = {
@@ -73,12 +82,16 @@ class SingleFilm extends Component {
         return (
             <Col className="h-50" sm={12} md={6} lg={4} xl={2}>
                 <Card className="my-3 h-100">
-                    <Card.Img
-                        variant="top"
-                        src={film.Poster}
-                        className="gallery-img"
-                        onClick={() => this.setState({ seeComments: !this.state.seeComments })}
-                    />
+                    <Carousel>
+                        <Carousel.Item>
+                            <Card.Img
+                                variant="top"
+                                src={film.Poster}
+                                className="gallery-img"
+                                onClick={() => this.setState({ seeComments: !this.state.seeComments })}
+                            />
+                        </Carousel.Item>
+                    </Carousel>
                     <div>
                         <ListGroup
                             className="text-center p-3"

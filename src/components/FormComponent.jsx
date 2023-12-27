@@ -45,14 +45,14 @@ class FormComponent extends Component {
                     type="switch"
                     id="custom-switch"
                     label="hai più di 18 anni? (⊙_⊙)"
-                    onChange={(event) => handleFullComment(event, adult, event.target.checked)}
+                    onChange={(event) => handleFullComment(adult, event.target.checked)}
                 />
                 <Form.Control
                     type="text"
                     id={film.imdbID}
                     aria-describedby="passwordHelpBlock"
                     rows={3}
-                    onChange={(event) => handleFullComment(event, name, event.target.value)}
+                    onChange={(event) => handleFullComment(name, event.target.value)}
                     placeholder="Inserisci nome..."
                     required
                 />
@@ -61,7 +61,7 @@ class FormComponent extends Component {
                     id={film.imdbID}
                     aria-describedby="passwordHelpBlock"
                     rows={3}
-                    onChange={(event) => handleFullComment(event, surname, event.target.value)}
+                    onChange={(event) => handleFullComment(surname, event.target.value)}
                     placeholder="inserisci cognome..."
                     required
                 />
@@ -70,7 +70,7 @@ class FormComponent extends Component {
                     id={film.imdbID}
                     aria-describedby="passwordHelpBlock"
                     rows={3}
-                    onChange={(event) => handleFullComment(event, email, event.target.value)}
+                    onChange={(event) => handleFullComment(email, event.target.value)}
                     placeholder="inserisci email..."
                     required
                 />
@@ -79,7 +79,7 @@ class FormComponent extends Component {
                     id={film.imdbID}
                     aria-describedby="passwordHelpBlock"
                     rows={3}
-                    onChange={(event) => handleFullComment(event, dateTime, event.target.value)}
+                    onChange={(event) => handleFullComment(dateTime, event.target.value)}
                     placeholder="quando l'hai visto?"
                     required
                 />
@@ -88,7 +88,7 @@ class FormComponent extends Component {
                     id={film.imdbID}
                     aria-describedby="passwordHelpBlock"
                     rows={3}
-                    onChange={(event) => handleFullComment(event, phone, event.target.value)}
+                    onChange={(event) => handleFullComment(phone, event.target.value)}
                     placeholder="numero cell"
                     required
                 />
