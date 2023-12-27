@@ -77,7 +77,7 @@ class FilmSection extends Component {
                                 {" "}
                                 <div className="d-flex align-items-end h-100">
                                     {" "}
-                                    <h4 className="text-light">{titleSection}</h4>
+                                    <h4 className="text-light m-0">{titleSection}</h4>
                                 </div>
                             </Col>
 
