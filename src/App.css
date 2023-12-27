@@ -76,3 +76,27 @@
     border: 6px solid rgb(35, 180, 224);
     outline: unset !important; /* I added this one for Edge (chromium) support */
 }
+
+#this {
+    width: 90%;
+
+    @media screen and (min-width: 768px) {
+        width: 50%;
+    }
+}
+
+#that {
+    width: 90%;
+
+    @media screen and (min-width: 768px) {
+        width: 50%;
+    }
+}
+
+#those {
+    width: 90%;
+
+    @media screen and (min-width: 768px) {
+        width: 50%;
+    }
+}

@@ -28,12 +28,13 @@ const MyFooter = () => {
                         </div>
                     </Col>
                 </Row>
-                <Row sm={1} md={2}>
+
+                <Row>
                     <div
                         id="that"
-                        className="d-flex text-secondary justify-content-start m-auto gap-4 flex-wrap flex-md-nowrap"
+                        className="d-flex text-secondary justify-content-center m-auto gap-4 flex-wrap flex-md-nowrap"
                     >
-                        <Col>
+                        <Col xxl={2}>
                             <div>
                                 <div className="mb-1">Audio and subtitles</div>
                                 <div className="mb-1">Media Center</div>
@@ -41,7 +42,7 @@ const MyFooter = () => {
                                 <div className="mb-1">Contact Us</div>
                             </div>
                         </Col>
-                        <Col>
+                        <Col xxl={2}>
                             <div>
                                 <div className="mb-1">Audio and subtitles</div>
                                 <div className="mb-1">Media Center</div>
@@ -49,7 +50,7 @@ const MyFooter = () => {
                                 <div className="mb-1">Contact Us</div>
                             </div>
                         </Col>
-                        <Col>
+                        <Col xxl={2}>
                             <div>
                                 <div className="mb-1">Audio and subtitles</div>
                                 <div className="mb-1">Media Center</div>
@@ -57,7 +58,7 @@ const MyFooter = () => {
                                 <div className="mb-1">Contact Us</div>
                             </div>
                         </Col>
-                        <Col>
+                        <Col xxl={2}>
                             <div>
                                 <div className="mb-1">Audio and subtitles</div>
                                 <div className="mb-1">Media Center</div>
