@@ -22,10 +22,10 @@ const App = () => {
 
     const [isDataLoaded, setIsDataLoaded] = useState(null);
     const [showFirstLoad, setshowFirstLoad] = useState(true);
-    const [colorBackground, setColorbackground] = useState("rgb(43, 48, 53)");
+    /*     const [colorBackground, setColorbackground] = useState("rgb(43, 48, 53)");
     const [randomNum0, setRandomnum0] = useState("0");
     const [randomNum1, setRandomnum1] = useState("0");
-    const [randomNum2, setRandomnum2] = useState("0");
+    const [randomNum2, setRandomnum2] = useState("0"); */
 
     const fetchFilms = async (NomeSaga) => {
         const options = {
@@ -80,9 +80,9 @@ const App = () => {
     }, []); /* questo viene triggherato solo una volta , quando il componente viene montato  */
 
     /* la roba qui dentro viene triggherata ogni volta che colorbackground cambia  */
-    useEffect(() => {
+    /*     useEffect(() => {
         console.log("sfondo cambiato!!");
-    }, [colorBackground]);
+    }, [colorBackground]); */
 
     /*    const cambiamoColoreDiSfondo = () => {
         const randomNumber0 = Math.floor(Math.random() * 255);
@@ -106,12 +106,7 @@ const App = () => {
             <Router>
                 <div className="App backGround-color">
                     {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
-                    <NavBar
-                        handleNavbarButtonClick={handleNavbarButtonClick}
-                        randomnum0={randomNum0}
-                        randomnum1={randomNum1}
-                        randomnum2={randomNum2}
-                    />
+                    <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
                     <SecondSection />
                     {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
