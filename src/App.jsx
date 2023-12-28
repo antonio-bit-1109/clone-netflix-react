@@ -23,15 +23,9 @@ const App = () => {
     const [isDataLoaded, setIsDataLoaded] = useState(null);
     const [showFirstLoad, setshowFirstLoad] = useState(true);
     const [colorBackground, setColorbackground] = useState("rgb(43, 48, 53)");
-    /*  state = {
-        filmsBySaga: {
-            batman: [],
-            hulk: [],
-            matrix: [],
-        },
-        isDataLoaded: null,
-        showFirstLoad: true,
-    }; */
+    const [randomNum0, setRandomnum0] = useState("0");
+    const [randomNum1, setRandomnum1] = useState("0");
+    const [randomNum2, setRandomnum2] = useState("0");
 
     const fetchFilms = async (NomeSaga) => {
         const options = {
@@ -83,20 +77,23 @@ const App = () => {
         if (thePageHasBeenLoaded === true) {
             setshowFirstLoad(false);
         }
-    }, []);
+    }, []); /* questo viene triggherato solo una volta , quando il componente viene montato  */
 
     /* la roba qui dentro viene triggherata ogni volta che colorbackground cambia  */
     useEffect(() => {
         console.log("sfondo cambiato!!");
     }, [colorBackground]);
 
-    const cambiamoColoreDiSfondo = () => {
+    /*    const cambiamoColoreDiSfondo = () => {
         const randomNumber0 = Math.floor(Math.random() * 255);
         const randomNumber1 = Math.floor(Math.random() * 255);
         const randomNumber2 = Math.floor(Math.random() * 255);
 
         setColorbackground(`rgb(${randomNumber0} , ${randomNumber1} , ${randomNumber2})`);
-    };
+        setRandomnum0(randomNumber0);
+        setRandomnum1(randomNumber1);
+        setRandomnum2(randomNumber2);
+    }; */
 
     /* PASSARE INFO DA FIGLIO A PADRE */
     /* 1. DEFINISCO UNA FUNZIONE NEL PADRE */
@@ -105,11 +102,16 @@ const App = () => {
     };
 
     return (
-        <div onClick={cambiamoColoreDiSfondo} style={{ backgroundColor: colorBackground }}>
+        <div /* onClick={cambiamoColoreDiSfondo} style={{ backgroundColor: colorBackground }} */>
             <Router>
                 <div className="App backGround-color">
                     {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
-                    <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
+                    <NavBar
+                        handleNavbarButtonClick={handleNavbarButtonClick}
+                        randomnum0={randomNum0}
+                        randomnum1={randomNum1}
+                        randomnum2={randomNum2}
+                    />
                     <SecondSection />
                     {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
