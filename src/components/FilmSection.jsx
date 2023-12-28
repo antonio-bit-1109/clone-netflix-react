@@ -67,9 +67,9 @@ class FilmSection extends Component {
                 this.setState({ arrayOfFilms: data.Search, isLoading: false });
                 this.handleUpdateProgressBar(100);
 
-                setInterval(() => {
+                setTimeout(() => {
                     this.handleUpdateProgressBar(0);
-                }, 800);
+                }, 1000);
             })
             .catch((err) => console.error(err));
     }
