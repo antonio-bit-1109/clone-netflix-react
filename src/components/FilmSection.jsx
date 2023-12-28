@@ -45,6 +45,12 @@ const FilmSection = (props) => {
         }, 4000);
     }, [displayMessage]);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setFilmNotFound(false);
+        }, 4000);
+    }, [filmNotFound]);
+
     const FetchAGet = (value) => {
         setIsLoading(true);
 
