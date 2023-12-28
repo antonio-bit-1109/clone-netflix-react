@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import SingleFilm from "./SingleFilm";
@@ -8,6 +8,7 @@ import { Button, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import AlertFilmNotFound from "./AlertFilmNotFound";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const FilmSection = (props) => {
     /*  state = {
@@ -24,6 +25,7 @@ const FilmSection = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [filmNotFound, setFilmNotFound] = useState(null);
     const [updateProgressBar, setUpdateProgressBar] = useState(0);
+    const [displayMessage, setDisplayMessage] = useState(false);
 
     const handleChange = (event) => {
         setInputValue(event.target.value);
@@ -35,8 +37,13 @@ const FilmSection = (props) => {
     };
 
     const handleUpdateProgressBar = (value) => {
-        setUpdateProgressBar({ updateProgressBar: value });
+        setUpdateProgressBar(value);
     };
+    useEffect(() => {
+        setTimeout(() => {
+            setDisplayMessage(false);
+        }, 4000);
+    }, [displayMessage]);
 
     const FetchAGet = (value) => {
         setIsLoading(true);
@@ -115,9 +122,9 @@ const FilmSection = (props) => {
                                     <Button
                                         type="button"
                                         variant="warning"
-                                        onClick={() => {
-                                            handleClick(inputValue);
-                                        }}
+                                        onClick={() =>
+                                            inputValue !== "" ? handleClick(inputValue) : setDisplayMessage(true)
+                                        }
                                     >
                                         Press Here
                                     </Button>
@@ -125,6 +132,12 @@ const FilmSection = (props) => {
                             </Col>
                         </Row>
                         {filmNotFound && <AlertFilmNotFound inputValue={inputValue} />}
+                        {/* se input vuoto e buttone press here premuto appare mini alert  */}
+                        {inputValue === "" && displayMessage === true ? (
+                            <div className="text-light animation" style={{ fontFamily: "sans-serif" }}>
+                                <ArrowLeft /> inserisci il nome di una saga da cercare!{" "}
+                            </div>
+                        ) : null}
 
                         {/* qui c'è lo spinner */}
 
