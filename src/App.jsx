@@ -11,7 +11,7 @@ import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
 import ProfilePage from "./components/ProfilePage";
-import HooksComponent from "./components/HooksComponent";
+/* import HooksComponent from "./components/HooksComponent"; */
 
 class App extends Component {
     state = {
