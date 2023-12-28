@@ -22,6 +22,7 @@ const App = () => {
 
     const [isDataLoaded, setIsDataLoaded] = useState(null);
     const [showFirstLoad, setshowFirstLoad] = useState(true);
+    const [colorBackground, setColorbackground] = useState("rgb(43, 48, 53)");
     /*  state = {
         filmsBySaga: {
             batman: [],
@@ -75,6 +76,28 @@ const App = () => {
         setIsDataLoaded(true);
     }, []); /* con array vuoto (dependancy) la funzione viene chiamata solo una volta, quando il componente viene montato */
 
+    useEffect(() => {
+        /* mostra se la pagina è stata ricaricata */
+        const thePageHasBeenLoaded = performance.navigation.type === 1;
+
+        if (thePageHasBeenLoaded === true) {
+            setshowFirstLoad(false);
+        }
+    }, []);
+
+    /* la roba qui dentro viene triggherata ogni volta che colorbackground cambia  */
+    useEffect(() => {
+        console.log("sfondo cambiato!!");
+    }, [colorBackground]);
+
+    const cambiamoColoreDiSfondo = () => {
+        const randomNumber0 = Math.floor(Math.random() * 255);
+        const randomNumber1 = Math.floor(Math.random() * 255);
+        const randomNumber2 = Math.floor(Math.random() * 255);
+
+        setColorbackground(`rgb(${randomNumber0} , ${randomNumber1} , ${randomNumber2})`);
+    };
+
     /* PASSARE INFO DA FIGLIO A PADRE */
     /* 1. DEFINISCO UNA FUNZIONE NEL PADRE */
     const handleNavbarButtonClick = (value) => {
@@ -82,24 +105,26 @@ const App = () => {
     };
 
     return (
-        <Router>
-            <div className="App backGround-color">
-                {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
-                <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
-                <SecondSection />
-                {showFirstLoad ? <FirstLoad /> : ""}
-                <Routes>
-                    {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
-                    {isDataLoaded === true && (
-                        <Route path="/homePage" element={<MainPage filmSection={filmsBySaga} />} />
-                    )}
-                    <Route path="/SettingsPage" element={<SettingsPage />} />
-                    <Route path="/ProfilePage" element={<ProfilePage />} />
-                </Routes>{" "}
-                <MyFooter />
-                {/* <HooksComponent /> */}
-            </div>
-        </Router>
+        <div onClick={cambiamoColoreDiSfondo} style={{ backgroundColor: colorBackground }}>
+            <Router>
+                <div className="App backGround-color">
+                    {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
+                    <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
+                    <SecondSection />
+                    {showFirstLoad ? <FirstLoad /> : ""}
+                    <Routes>
+                        {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
+                        {isDataLoaded === true && (
+                            <Route path="/homePage" element={<MainPage filmSection={filmsBySaga} />} />
+                        )}
+                        <Route path="/SettingsPage" element={<SettingsPage />} />
+                        <Route path="/ProfilePage" element={<ProfilePage />} />
+                    </Routes>{" "}
+                    <MyFooter />
+                    {/* <HooksComponent /> */}
+                </div>
+            </Router>
+        </div>
     );
 };
 
