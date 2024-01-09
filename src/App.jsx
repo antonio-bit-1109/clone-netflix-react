@@ -22,10 +22,6 @@ const App = () => {
 
     const [isDataLoaded, setIsDataLoaded] = useState(null);
     const [showFirstLoad, setshowFirstLoad] = useState(true);
-    /*     const [colorBackground, setColorbackground] = useState("rgb(43, 48, 53)");
-    const [randomNum0, setRandomnum0] = useState("0");
-    const [randomNum1, setRandomnum1] = useState("0");
-    const [randomNum2, setRandomnum2] = useState("0"); */
 
     const fetchFilms = async (NomeSaga) => {
         const options = {
