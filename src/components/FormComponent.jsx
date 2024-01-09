@@ -35,7 +35,7 @@ const FormComponent = (props) => {
             )}
 
             <Form.Check
-                className="d-flex gap-2" // prettier-ignore
+                className="d-flex gap-2 text-light" // prettier-ignore
                 type="switch"
                 id="custom-switch"
                 label="hai più di 18 anni? (⊙_⊙)"

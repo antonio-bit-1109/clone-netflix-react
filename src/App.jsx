@@ -11,6 +11,7 @@ import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
 import ProfilePage from "./components/ProfilePage";
+import ListAndFormComponent from "./components/ListAndFormComponent";
 /* import HooksComponent from "./components/HooksComponent"; */
 
 const App = () => {
@@ -81,6 +82,71 @@ const App = () => {
         setshowFirstLoad(value);
     };
 
+    /* IMPORTO TUTTI GLI STATI DA SINGLEFILM IN APP  */
+
+    const [seeComments, setSeeComments] = useState(false);
+    const [submitted, setSubmitted] = useState(null);
+    const [fullComment, setFullComment] = useState({
+        email: "",
+        name: "",
+        surname: "",
+        adult: false,
+        comment: "",
+        dateTime: "",
+        phone: "",
+    });
+
+    const [copyOfFilm, setCopyOfFilm] = useState(null);
+    console.log("copyOfFilm", copyOfFilm);
+
+    const handleinputValue = (event) => {
+        setFullComment({ ...fullComment, comment: event.target.value });
+    };
+
+    const handleFullComment = (propertyName, propertyValue) => {
+        setFullComment({ ...fullComment, [propertyName]: propertyValue /* event.target.checked */ });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        postAFetch();
+    };
+
+    const postAFetch = () => {
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(fullComment),
+        };
+
+        fetch("https://striveschool-api.herokuapp.com/api/reservation", options)
+            .then((response) => {
+                console.log(response);
+                if (!response.ok) {
+                    /*  */
+                    setSubmitted(false);
+
+                    if (response.status > 400 && response.status < 500) {
+                        if (response.status === 429) {
+                            throw new Error("429 INFAME, PER TE SOLO LE LAME!");
+                        }
+                    } else {
+                        throw new Error("OCCHIO! STAI CAPPELLANDO DA QUALCHE PARTE!");
+                    }
+                } else {
+                    if (response.status > 200 && response.status < 300) {
+                        console.log(response.status);
+                        console.log("SPEDITO, DAIE!");
+                    }
+                    setSubmitted(true);
+                }
+            })
+            .catch((err) => console.error(err));
+    };
+
     return (
         <div /* onClick={cambiamoColoreDiSfondo} style={{ backgroundColor: colorBackground }} */>
             <Router>
@@ -92,10 +158,42 @@ const App = () => {
                     <Routes>
                         {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
                         {isDataLoaded === true && (
-                            <Route path="/homePage" element={<MainPage filmSection={filmsBySaga} />} />
+                            <Route
+                                path="/homePage"
+                                element={
+                                    <MainPage
+                                        filmSection={filmsBySaga}
+                                        seeComments={seeComments}
+                                        setSeeComments={setSeeComments}
+                                        submitted={submitted}
+                                        setSubmitted={setSubmitted}
+                                        fullComment={fullComment}
+                                        setFullComment={setFullComment}
+                                        handleinputValue={handleinputValue}
+                                        handleFullComment={handleFullComment}
+                                        handleSubmit={handleSubmit}
+                                        setCopyOfFilm={setCopyOfFilm}
+                                    />
+                                }
+                            />
                         )}
                         <Route path="/SettingsPage" element={<SettingsPage />} />
                         <Route path="/ProfilePage" element={<ProfilePage />} />
+                        <Route
+                            path="/ListAndForum"
+                            element={
+                                <ListAndFormComponent
+                                    film={copyOfFilm}
+                                    seeComments={seeComments}
+                                    submitted={submitted}
+                                    fullComment={fullComment}
+                                    adult={fullComment.adult}
+                                    handleinputValue={handleinputValue}
+                                    handleFullComment={handleFullComment}
+                                    handleSubmit={handleSubmit}
+                                />
+                            }
+                        />
                     </Routes>{" "}
                     <MyFooter />
                     {/* <HooksComponent /> */}

@@ -19,6 +19,23 @@ const FilmSection = (props) => {
         updateProgressBar: 0,
     }; */
 
+    const { filmSection } = props; /* array di films proveniente da app */
+    console.log(filmSection);
+
+    const {
+        titleSection,
+        seeComments,
+        setSeeComments,
+        submitted,
+        setSubmitted,
+        fullComment,
+        setFullComment,
+        handleinputValue,
+        handleFullComment,
+        handleSubmit,
+        setCopyOfFilm,
+    } = props;
+
     const [inputValue, setInputValue] = useState("");
     console.log(inputValue);
     const [arrayOfFilms, setArrayOfFilms] = useState(null);
@@ -98,11 +115,6 @@ const FilmSection = (props) => {
             .catch((err) => console.error(err));
     };
 
-    const { filmSection } = props; /* array di films proveniente da app */
-    console.log(filmSection);
-
-    const { titleSection } = props;
-
     return (
         <>
             <Container fluid>
@@ -162,12 +174,34 @@ const FilmSection = (props) => {
                             ? filmSection
                                   .slice(0, 6)
                                   .map((film, index) => (
-                                      <SingleFilm key={`serie-di-film${index}`} film={film} index={index} />
+                                      <SingleFilm
+                                          key={`serie-di-film${index}`}
+                                          film={film}
+                                          index={index}
+                                          seeComments={seeComments}
+                                          setSeeComments={setSeeComments}
+                                          submitted={submitted}
+                                          setSubmitted={setSubmitted}
+                                          fullComment={fullComment}
+                                          setFullComment={setFullComment}
+                                          handleinputValue={handleinputValue}
+                                          handleFullComment={handleFullComment}
+                                          handleSubmit={handleSubmit}
+                                          setCopyOfFilm={setCopyOfFilm}
+                                      />
                                   ))
                             : arrayOfFilms
                                   .slice(0, 6)
                                   .map((film, index) => (
-                                      <SingleFilm key={`serie-di-film${index}`} film={film} index={index} />
+                                      <SingleFilm
+                                          key={`serie-di-film${index}`}
+                                          film={film}
+                                          index={index}
+                                          seeComments={seeComments}
+                                          setSeeComments={setSeeComments}
+                                          submitted={submitted}
+                                          setSubmitted={setSubmitted}
+                                      />
                                   ))}
                     </Row>
                 </div>
