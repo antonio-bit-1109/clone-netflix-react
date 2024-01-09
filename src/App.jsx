@@ -195,6 +195,7 @@ const App = () => {
                                     handleinputValue={handleinputValue}
                                     handleFullComment={handleFullComment}
                                     handleSubmit={handleSubmit}
+                                    setSeeComments={setSeeComments}
                                 />
                             }
                         />

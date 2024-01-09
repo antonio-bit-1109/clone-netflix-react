@@ -5,20 +5,37 @@ import { Link } from "react-router-dom";
 import { ArrowBarLeft } from "react-bootstrap-icons";
 
 const ListAndFormComponent = (props) => {
-    const { film, handleinputValue, handleSubmit, handleFullComment, adult, submitted, fullComment, seeComments } =
-        props;
+    const {
+        film,
+        handleinputValue,
+        handleSubmit,
+        handleFullComment,
+        adult,
+        submitted,
+        fullComment,
+        seeComments,
+        setSeeComments,
+    } = props;
     return (
         <div className="d-flex justify-content-center mt-5">
             <Link to={"/homePage"}>
                 {" "}
-                <ArrowBarLeft className="text-light fs-1" />
+                <button
+                    onClick={() => {
+                        setSeeComments(!seeComments);
+                    }}
+                    className="bg-transparent border-0"
+                >
+                    {" "}
+                    <ArrowBarLeft className="text-light fs-1" />
+                </button>
             </Link>
             <Col xs={12} md={10} lg={8} xl={5}>
                 <ListGroup
                     className="text-center p-3"
                     style={{
                         /*  display: seeComments ? "block" : "none", */
-                        animation: seeComments ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both" : "none",
+                        animation: !seeComments ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both" : "none",
                     }}
                 >
                     <ListGroup.Item>

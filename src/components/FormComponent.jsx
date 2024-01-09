@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 
 const FormComponent = (props) => {
-    const { film, handleinputValue, handleSubmit, handleFullComment, submitted } = props;
+    const { film, handleinputValue, handleSubmit, handleFullComment, submitted, setSeeComments } = props;
 
     return (
         <Form className="d-flex flex-column gap-2" onSubmit={(event) => handleSubmit(event)}>
