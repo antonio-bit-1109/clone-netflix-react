@@ -6,7 +6,7 @@ import { ArrowBarLeft } from "react-bootstrap-icons";
 
 const ListAndFormComponent = (props) => {
     const {
-        film,
+        film /* il contenuto è copyOfFilm */,
         handleinputValue,
         handleSubmit,
         handleFullComment,
@@ -18,7 +18,7 @@ const ListAndFormComponent = (props) => {
     } = props;
     return (
         <div className="d-flex justify-content-center mt-5">
-            <Link to={"/homePage"}>
+            <Link to={`/homePage?lastFilmLoaded=${film.Title}`}>
                 {" "}
                 <button
                     onClick={() => {

@@ -6,7 +6,7 @@ import MyFooter from "./components/MyFooter";
 
 import { useEffect, useState } from "react";
 /* importo browser router */
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useSearchParams } from "react-router-dom";
 import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
@@ -16,6 +16,16 @@ import ListAndFormComponent from "./components/ListAndFormComponent";
 /* import HooksComponent from "./components/HooksComponent"; */
 
 const App = () => {
+    /* PERCHE VERSIONE HOOKS NON FUNZIA ??  */
+
+    /* const [params] = useSearchParams();
+    const lastFilmLoaded = params.get("lastFilmLoaded");
+    console.log(lastFilmLoaded); */
+
+    const params = new URLSearchParams(window.location.search);
+    const lastFilmLoaded = params.get("lastFilmLoaded");
+    console.log(lastFilmLoaded);
+
     const [filmsBySaga, setFilmsBySaga] = useState({
         batman: [],
         hulk: [],
@@ -149,61 +159,59 @@ const App = () => {
     };
 
     return (
-        <div /* onClick={cambiamoColoreDiSfondo} style={{ backgroundColor: colorBackground }} */>
-            <Router>
-                <div className="App backGround-color">
-                    {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
-                    <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
-                    {showFirstLoad ? <FirstLoad /> : ""}
-                    <Routes>
-                        {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
-                        {isDataLoaded === true && (
-                            <Route
-                                path="/homePage"
-                                element={
-                                    <>
-                                        {" "}
-                                        <SecondSection />
-                                        <MainPage
-                                            filmSection={filmsBySaga}
-                                            seeComments={seeComments}
-                                            setSeeComments={setSeeComments}
-                                            submitted={submitted}
-                                            setSubmitted={setSubmitted}
-                                            fullComment={fullComment}
-                                            setFullComment={setFullComment}
-                                            handleinputValue={handleinputValue}
-                                            handleFullComment={handleFullComment}
-                                            handleSubmit={handleSubmit}
-                                            setCopyOfFilm={setCopyOfFilm}
-                                        />
-                                    </>
-                                }
-                            />
-                        )}
-                        <Route path="/SettingsPage" element={<SettingsPage />} />
-                        <Route path="/ProfilePage" element={<ProfilePage />} />
+        <Router>
+            <div className="App backGround-color">
+                {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
+                <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
+                {showFirstLoad ? <FirstLoad /> : ""}
+                <Routes>
+                    {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
+                    {isDataLoaded === true && (
                         <Route
-                            path="/ListAndForum"
+                            path="/homePage"
                             element={
-                                <ListAndFormComponent
-                                    film={copyOfFilm}
-                                    seeComments={seeComments}
-                                    submitted={submitted}
-                                    fullComment={fullComment}
-                                    adult={fullComment.adult}
-                                    handleinputValue={handleinputValue}
-                                    handleFullComment={handleFullComment}
-                                    handleSubmit={handleSubmit}
-                                    setSeeComments={setSeeComments}
-                                />
+                                <>
+                                    {" "}
+                                    <SecondSection />
+                                    <MainPage
+                                        filmSection={filmsBySaga}
+                                        seeComments={seeComments}
+                                        setSeeComments={setSeeComments}
+                                        submitted={submitted}
+                                        setSubmitted={setSubmitted}
+                                        fullComment={fullComment}
+                                        setFullComment={setFullComment}
+                                        handleinputValue={handleinputValue}
+                                        handleFullComment={handleFullComment}
+                                        handleSubmit={handleSubmit}
+                                        setCopyOfFilm={setCopyOfFilm}
+                                    />
+                                </>
                             }
                         />
-                    </Routes>{" "}
-                    <MyFooter />
-                </div>
-            </Router>
-        </div>
+                    )}
+                    <Route path="/SettingsPage" element={<SettingsPage />} />
+                    <Route path="/ProfilePage" element={<ProfilePage />} />
+                    <Route
+                        path="/ListAndForum"
+                        element={
+                            <ListAndFormComponent
+                                film={copyOfFilm}
+                                seeComments={seeComments}
+                                submitted={submitted}
+                                fullComment={fullComment}
+                                adult={fullComment.adult}
+                                handleinputValue={handleinputValue}
+                                handleFullComment={handleFullComment}
+                                handleSubmit={handleSubmit}
+                                setSeeComments={setSeeComments}
+                            />
+                        }
+                    />
+                </Routes>{" "}
+                <MyFooter />
+            </div>
+        </Router>
     );
 };
 
