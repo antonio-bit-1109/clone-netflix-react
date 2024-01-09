@@ -3,6 +3,7 @@ import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import FormComponent from "./FormComponent";
+import ListAndFormComponent from "./ListAndFormComponent";
 
 const SingleFilm = (props) => {
     /* state = {
@@ -90,7 +91,17 @@ const SingleFilm = (props) => {
                     onClick={() => setSeeComments(!seeComments)}
                 />
 
-                <div>
+                <ListAndFormComponent
+                    film={film}
+                    handleinputValue={handleinputValue}
+                    handleSubmit={handleSubmit}
+                    handleFullComment={handleFullComment}
+                    adult={fullComment.adult}
+                    submitted={submitted}
+                    fullComment={fullComment}
+                    seeComments={seeComments}
+                />
+                {/*  {<div>
                     <ListGroup
                         className="text-center p-3"
                         style={{
@@ -104,7 +115,7 @@ const SingleFilm = (props) => {
                         <ListGroup.Item>{film.imdbID}</ListGroup.Item>
 
                         <div>
-                            {/* Form */}
+                            
                             <FormComponent
                                 film={film}
                                 handleinputValue={handleinputValue}
@@ -115,7 +126,7 @@ const SingleFilm = (props) => {
                             />
                         </div>
                     </ListGroup>
-                </div>
+                </div>} */}
             </Card>
         </Col>
     );
