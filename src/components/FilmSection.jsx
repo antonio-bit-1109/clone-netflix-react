@@ -193,6 +193,12 @@ const FilmSection = (props) => {
                                           setSeeComments={setSeeComments}
                                           submitted={submitted}
                                           setSubmitted={setSubmitted}
+                                          fullComment={fullComment}
+                                          setFullComment={setFullComment}
+                                          handleinputValue={handleinputValue}
+                                          handleFullComment={handleFullComment}
+                                          handleSubmit={handleSubmit}
+                                          setCopyOfFilm={setCopyOfFilm}
                                       />
                                   ))}
                     </Row>
