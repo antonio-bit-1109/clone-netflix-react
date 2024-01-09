@@ -1,12 +1,18 @@
 import React from "react";
 import { Col, ListGroup } from "react-bootstrap";
 import FormComponent from "./FormComponent";
+import { Link } from "react-router-dom";
+import { ArrowBarLeft } from "react-bootstrap-icons";
 
 const ListAndFormComponent = (props) => {
     const { film, handleinputValue, handleSubmit, handleFullComment, adult, submitted, fullComment, seeComments } =
         props;
     return (
         <div className="d-flex justify-content-center mt-5">
+            <Link to={"/homePage"}>
+                {" "}
+                <ArrowBarLeft className="text-light fs-1" />
+            </Link>
             <Col xs={12} md={10} lg={8} xl={5}>
                 <ListGroup
                     className="text-center p-3"

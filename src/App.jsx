@@ -12,6 +12,7 @@ import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
 import ProfilePage from "./components/ProfilePage";
 import ListAndFormComponent from "./components/ListAndFormComponent";
+import { ArrowBarLeft, Link } from "react-bootstrap-icons";
 /* import HooksComponent from "./components/HooksComponent"; */
 
 const App = () => {
@@ -182,16 +183,19 @@ const App = () => {
                         <Route
                             path="/ListAndForum"
                             element={
-                                <ListAndFormComponent
-                                    film={copyOfFilm}
-                                    seeComments={seeComments}
-                                    submitted={submitted}
-                                    fullComment={fullComment}
-                                    adult={fullComment.adult}
-                                    handleinputValue={handleinputValue}
-                                    handleFullComment={handleFullComment}
-                                    handleSubmit={handleSubmit}
-                                />
+                                <>
+                                    {" "}
+                                    <ListAndFormComponent
+                                        film={copyOfFilm}
+                                        seeComments={seeComments}
+                                        submitted={submitted}
+                                        fullComment={fullComment}
+                                        adult={fullComment.adult}
+                                        handleinputValue={handleinputValue}
+                                        handleFullComment={handleFullComment}
+                                        handleSubmit={handleSubmit}
+                                    />
+                                </>
                             }
                         />
                     </Routes>{" "}
