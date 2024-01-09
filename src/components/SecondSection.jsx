@@ -5,41 +5,39 @@ import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import { List, ThreeDotsVertical } from "react-bootstrap-icons";
 
-class SecondSection extends Component {
-    render() {
-        return (
-            <Container fluid>
-                <Row>
-                    <Col xs={6}>
-                        <div className="d-flex justify-content-start gap-3 m-2">
-                            <h3 className="fw-bold text-light">TV SHOW</h3>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                                    Genres
-                                </Dropdown.Toggle>
+const SecondSection = () => {
+    return (
+        <Container fluid>
+            <Row>
+                <Col xs={6}>
+                    <div className="d-flex justify-content-start gap-3 m-2">
+                        <h3 className="fw-bold text-light">TV SHOW</h3>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                                Genres
+                            </Dropdown.Toggle>
 
-                                <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">Thriller</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Action action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">Romance</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>{" "}
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#/action-1">Thriller</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">Action action</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">Romance</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>{" "}
+                    </div>
+                </Col>
+                <Col xs={6}>
+                    <div className="d-flex justify-content-end h-100 align-items-center gap-1">
+                        <div className="border rounded border-secondary d-flex align-items-center p-1">
+                            <List className="text-secondary fs-5" />
                         </div>
-                    </Col>
-                    <Col xs={6}>
-                        <div className="d-flex justify-content-end h-100 align-items-center gap-1">
-                            <div className="border rounded border-secondary d-flex align-items-center p-1">
-                                <List className="text-secondary fs-5" />
-                            </div>
-                            <div className="border rounded border-secondary d-flex align-items-center p-1">
-                                <ThreeDotsVertical className="text-secondary fs-5" />
-                            </div>
+                        <div className="border rounded border-secondary d-flex align-items-center p-1">
+                            <ThreeDotsVertical className="text-secondary fs-5" />
                         </div>
-                    </Col>
-                </Row>
-            </Container>
-        );
-    }
-}
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
+};
 
 export default SecondSection;
