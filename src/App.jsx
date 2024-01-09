@@ -183,8 +183,7 @@ const App = () => {
                         <Route
                             path="/ListAndForum"
                             element={
-                                <>
-                                    {" "}
+                                copyOfFilm && (
                                     <ListAndFormComponent
                                         film={copyOfFilm}
                                         seeComments={seeComments}
@@ -195,12 +194,11 @@ const App = () => {
                                         handleFullComment={handleFullComment}
                                         handleSubmit={handleSubmit}
                                     />
-                                </>
+                                )
                             }
                         />
                     </Routes>{" "}
                     <MyFooter />
-                    {/* <HooksComponent /> */}
                 </div>
             </Router>
         </div>

@@ -7,22 +7,7 @@ import ListAndFormComponent from "./ListAndFormComponent";
 import { Link } from "react-router-dom";
 
 const SingleFilm = (props) => {
-    const { film } = props;
-    console.log(film);
-
-    const {
-        index,
-        seeComments,
-        setSeeComments,
-        submitted,
-        setSubmitted,
-        fullComment,
-        setFullComment,
-        handleinputValue,
-        handleFullComment,
-        handleSubmit,
-        setCopyOfFilm,
-    } = props;
+    const { index, seeComments, setSeeComments, setCopyOfFilm, film } = props;
 
     console.log(film);
     console.log(index);

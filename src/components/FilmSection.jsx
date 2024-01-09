@@ -11,14 +11,6 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import { ArrowLeft } from "react-bootstrap-icons";
 
 const FilmSection = (props) => {
-    /*  state = {
-        inputValue: "",
-        arrayOfFilms: null,
-        isLoading: false,
-        filmNotFound: null,
-        updateProgressBar: 0,
-    }; */
-
     const { filmSection } = props; /* array di films proveniente da app */
     console.log(filmSection);
 
