@@ -75,22 +75,6 @@ const App = () => {
         }
     }, []); /* questo viene triggherato solo una volta , quando il componente viene montato  */
 
-    /* la roba qui dentro viene triggherata ogni volta che colorbackground cambia  */
-    /*     useEffect(() => {
-        console.log("sfondo cambiato!!");
-    }, [colorBackground]); */
-
-    /*    const cambiamoColoreDiSfondo = () => {
-        const randomNumber0 = Math.floor(Math.random() * 255);
-        const randomNumber1 = Math.floor(Math.random() * 255);
-        const randomNumber2 = Math.floor(Math.random() * 255);
-
-        setColorbackground(`rgb(${randomNumber0} , ${randomNumber1} , ${randomNumber2})`);
-        setRandomnum0(randomNumber0);
-        setRandomnum1(randomNumber1);
-        setRandomnum2(randomNumber2);
-    }; */
-
     /* PASSARE INFO DA FIGLIO A PADRE */
     /* 1. DEFINISCO UNA FUNZIONE NEL PADRE */
     const handleNavbarButtonClick = (value) => {

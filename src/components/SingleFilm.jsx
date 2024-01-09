@@ -6,12 +6,6 @@ import FormComponent from "./FormComponent";
 import ListAndFormComponent from "./ListAndFormComponent";
 
 const SingleFilm = (props) => {
-    /* state = {
-        seeComments: false,
-        fullComment: { email: "", name: "", surname: "", adult: false, comment: "", dateTime: "", phone: "" },
-        submitted: null,
-    }; */
-
     const { film } = props;
     console.log(film);
 
@@ -101,6 +95,7 @@ const SingleFilm = (props) => {
                     fullComment={fullComment}
                     seeComments={seeComments}
                 />
+
                 {/*  {<div>
                     <ListGroup
                         className="text-center p-3"
