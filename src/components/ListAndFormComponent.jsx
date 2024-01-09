@@ -35,7 +35,7 @@ const ListAndFormComponent = (props) => {
                     className="text-center p-3"
                     style={{
                         /*  display: seeComments ? "block" : "none", */
-                        animation: !seeComments ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both" : "none",
+                        animation: seeComments ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both" : "none",
                     }}
                 >
                     <ListGroup.Item>
