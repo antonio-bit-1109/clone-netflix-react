@@ -183,18 +183,16 @@ const App = () => {
                         <Route
                             path="/ListAndForum"
                             element={
-                                copyOfFilm && (
-                                    <ListAndFormComponent
-                                        film={copyOfFilm}
-                                        seeComments={seeComments}
-                                        submitted={submitted}
-                                        fullComment={fullComment}
-                                        adult={fullComment.adult}
-                                        handleinputValue={handleinputValue}
-                                        handleFullComment={handleFullComment}
-                                        handleSubmit={handleSubmit}
-                                    />
-                                )
+                                <ListAndFormComponent
+                                    film={copyOfFilm}
+                                    seeComments={seeComments}
+                                    submitted={submitted}
+                                    fullComment={fullComment}
+                                    adult={fullComment.adult}
+                                    handleinputValue={handleinputValue}
+                                    handleFullComment={handleFullComment}
+                                    handleSubmit={handleSubmit}
+                                />
                             }
                         />
                     </Routes>{" "}
