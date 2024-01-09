@@ -16,10 +16,10 @@ const ListAndFormComponent = (props) => {
             <Col xs={12} md={10} lg={8} xl={5}>
                 <ListGroup
                     className="text-center p-3"
-                    /* style={{
-                        display: seeComments ? "block" : "none",
+                    style={{
+                        /*  display: seeComments ? "block" : "none", */
                         animation: seeComments ? "scale-up-top .4s cubic-bezier(.39,.575,.565,1.000) both" : "none",
-                    }} */
+                    }}
                 >
                     <ListGroup.Item>
                         {" "}

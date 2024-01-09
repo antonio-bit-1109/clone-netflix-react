@@ -154,7 +154,6 @@ const App = () => {
                 <div className="App backGround-color">
                     {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
                     <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
-                    <SecondSection />
                     {showFirstLoad ? <FirstLoad /> : ""}
                     <Routes>
                         {/* carica la route con main page solo dopo che ricevi i dati dalla fetch  */}
@@ -162,19 +161,23 @@ const App = () => {
                             <Route
                                 path="/homePage"
                                 element={
-                                    <MainPage
-                                        filmSection={filmsBySaga}
-                                        seeComments={seeComments}
-                                        setSeeComments={setSeeComments}
-                                        submitted={submitted}
-                                        setSubmitted={setSubmitted}
-                                        fullComment={fullComment}
-                                        setFullComment={setFullComment}
-                                        handleinputValue={handleinputValue}
-                                        handleFullComment={handleFullComment}
-                                        handleSubmit={handleSubmit}
-                                        setCopyOfFilm={setCopyOfFilm}
-                                    />
+                                    <>
+                                        {" "}
+                                        <SecondSection />
+                                        <MainPage
+                                            filmSection={filmsBySaga}
+                                            seeComments={seeComments}
+                                            setSeeComments={setSeeComments}
+                                            submitted={submitted}
+                                            setSubmitted={setSubmitted}
+                                            fullComment={fullComment}
+                                            setFullComment={setFullComment}
+                                            handleinputValue={handleinputValue}
+                                            handleFullComment={handleFullComment}
+                                            handleSubmit={handleSubmit}
+                                            setCopyOfFilm={setCopyOfFilm}
+                                        />
+                                    </>
                                 }
                             />
                         )}
