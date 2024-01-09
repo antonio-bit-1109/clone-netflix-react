@@ -12,7 +12,7 @@ import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
 import ProfilePage from "./components/ProfilePage";
 import ListAndFormComponent from "./components/ListAndFormComponent";
-import { ArrowBarLeft, Link } from "react-bootstrap-icons";
+
 /* import HooksComponent from "./components/HooksComponent"; */
 
 const App = () => {
