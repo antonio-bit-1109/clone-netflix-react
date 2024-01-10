@@ -6,7 +6,7 @@ import MyFooter from "./components/MyFooter";
 
 import { useEffect, useState } from "react";
 /* importo browser router */
-import { BrowserRouter as Router, Routes, Route, useSearchParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useSearchParams } from "react-router-dom";
 import SettingsPage from "./components/SettingsPage";
 import MainPage from "./components/MainPage";
 import FirstLoad from "./components/FirstLoad";
@@ -159,7 +159,7 @@ const App = () => {
     };
 
     return (
-        <Router>
+        <BrowserRouter>
             <div className="App backGround-color">
                 {/* 2. LA PASSO COME PROPS AL FIGLIO  */}
                 <NavBar handleNavbarButtonClick={handleNavbarButtonClick} />
@@ -186,6 +186,7 @@ const App = () => {
                                         handleSubmit={handleSubmit}
                                         setCopyOfFilm={setCopyOfFilm}
                                     />
+                                    <MyFooter />
                                 </>
                             }
                         />
@@ -209,9 +210,8 @@ const App = () => {
                         }
                     />
                 </Routes>{" "}
-                <MyFooter />
             </div>
-        </Router>
+        </BrowserRouter>
     );
 };
 
