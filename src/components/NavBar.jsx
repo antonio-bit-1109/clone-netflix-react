@@ -5,9 +5,14 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LogoNetflix from "../images/netflix_logo.png";
 import { BellFill, Search } from "react-bootstrap-icons";
 import KidsIcon from "../images/kids_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = (props) => {
+    /* HOOK PER TENERE TRACCIA DEL PERCORSO DELLA PAGINA  */
+    /* uselocation è un oggetto che una una proprietà pathname se corrisponde alla stringa che so essere la pagina nel quale mi trovo cambio il colore del link  */
+    const location = useLocation();
+    console.log(location);
+
     /* qui metto costanti */
 
     /* 3. ACCHIAPPO LA PROPS NEL FIGLIO */
@@ -40,9 +45,12 @@ const NavBar = (props) => {
                                 onClick={() => handleNavbarButtonClick(false)}
                                 className="d-flex align-items-center text-decoration-none px-3"
                             >
-                                <div className="p-0" style={{ color: "red" }}>
+                                <div
+                                    className="p-0"
+                                    style={{ color: location.pathname === "/homePage" ? "red" : "whitesmoke" }}
+                                >
                                     {" "}
-                                    Home
+                                    homePage
                                 </div>
                             </Link>
                             <Link
@@ -52,7 +60,11 @@ const NavBar = (props) => {
                                 className="d-flex align-items-center text-decoration-none "
                             >
                                 {" "}
-                                <div className="p-0" style={{ color: "red" }} href="#home">
+                                <div
+                                    className="p-0"
+                                    style={{ color: location.pathname === "/SettingsPage" ? "red" : "whitesmoke" }}
+                                    href="#home"
+                                >
                                     Settings Page{" "}
                                 </div>
                             </Link>
@@ -63,7 +75,11 @@ const NavBar = (props) => {
                                 className="d-flex align-items-center text-decoration-none ms-2"
                             >
                                 {" "}
-                                <div className="pt-1" style={{ color: "red" }} href="#home">
+                                <div
+                                    className="pt-1"
+                                    style={{ color: location.pathname === "/ProfilePage" ? "red" : "whitesmoke" }}
+                                    href="#home"
+                                >
                                     Profile Page{" "}
                                 </div>
                             </Link>

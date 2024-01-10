@@ -210,6 +210,7 @@ const App = () => {
                         }
                     />
                 </Routes>{" "}
+                <MyFooter />
             </div>
         </BrowserRouter>
     );
